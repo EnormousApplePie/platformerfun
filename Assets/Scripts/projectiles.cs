@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class projectiles : MonoBehaviour
+public class Projectiles : MonoBehaviour
 {
 
     private float projectile_speed = 10.0f;

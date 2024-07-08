@@ -175,6 +175,14 @@ MonoBehaviour:
   ground_layer:
     serializedVersion: 2
     m_Bits: 8
+  jump_sounds:
+  - {fileID: 8300000, guid: 938aa45f327a5514880e2758105ca24a, type: 3}
+  - {fileID: 8300000, guid: bdabb32db3307f444b8111e662acf1db, type: 3}
+  - {fileID: 8300000, guid: c5e915d62845de24d9800d97c3b2f172, type: 3}
+  - {fileID: 8300000, guid: 8c425ec46ca3cff4a8b990f70c9e93ab, type: 3}
+  - {fileID: 8300000, guid: e1410b154f228074388eb928c2604356, type: 3}
+  - {fileID: 8300000, guid: 2608907b1b5bc094c8766a4d140b7f46, type: 3}
+  - {fileID: 8300000, guid: a8c5b7eb007d11842abcfcd18a64c17e, type: 3}
 --- !u!114 &2662915697492305717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,8 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7716b53854401419a942171bbf8327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump_animation_scale: 1
-  jump_animation_time: 0.2
 --- !u!114 &1769716133558954457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +266,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   death_particle: {fileID: 2052208030933576603, guid: a5016630fe8f26d4a814cf298c57a1dd, type: 3}
+  death_clips:
+  - {fileID: 8300000, guid: 096a4a0e421518f4686b68359a930cd5, type: 3}
+  - {fileID: 8300000, guid: 4199c292b64b5104796c42a6d5374917, type: 3}
+  - {fileID: 8300000, guid: bc48a4f1610d17b4a80af03a91fb5120, type: 3}
 --- !u!1 &6111239395536685608
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,5 +413,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7716b53854401419a942171bbf8327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump_animation_scale: 1
-  jump_animation_time: 0.2

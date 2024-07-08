@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player_movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 
     // Player Components
@@ -29,8 +29,6 @@ public class player_movement : MonoBehaviour
     {
         rigid_body = GetComponent<Rigidbody2D>();
         player_collider = GetComponent<Collider2D>();
-
-        
     }
 
     private void FixedUpdate()
@@ -43,7 +41,6 @@ public class player_movement : MonoBehaviour
     private void Update()
     {
         rigid_body.velocity = new Vector2(Input.GetAxis("Horizontal") * move_speed, rigid_body.velocity.y);
-        //rigid_body.AddForce(new Vector2(Input.GetAxis("Horizontal") * move_speed, 0));
         is_grounded = Physics2D.Raycast(ground_check.position, Vector2.down, player_collider.bounds.size.y / 2 + 0.01f, ground_layer);
         
         do_coyote_time();
@@ -112,6 +109,7 @@ public class player_movement : MonoBehaviour
         {
             rigid_body.velocity = new Vector2(rigid_body.velocity.x, jump_force);
             jump_buffer_counter = 0f;
+
         }
         else if (rigid_body.velocity.y > 0f)
         {

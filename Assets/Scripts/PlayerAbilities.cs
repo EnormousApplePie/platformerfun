@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player_abilities : MonoBehaviour
+public class PlayerAbilities : MonoBehaviour
 {
     private float ability_grenade_timer = 0.0f;
     private float ability_grenade_cooldown = 1.0f;
