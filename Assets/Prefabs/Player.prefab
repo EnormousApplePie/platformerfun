@@ -175,14 +175,6 @@ MonoBehaviour:
   ground_layer:
     serializedVersion: 2
     m_Bits: 8
-  jump_sounds:
-  - {fileID: 8300000, guid: 938aa45f327a5514880e2758105ca24a, type: 3}
-  - {fileID: 8300000, guid: bdabb32db3307f444b8111e662acf1db, type: 3}
-  - {fileID: 8300000, guid: c5e915d62845de24d9800d97c3b2f172, type: 3}
-  - {fileID: 8300000, guid: 8c425ec46ca3cff4a8b990f70c9e93ab, type: 3}
-  - {fileID: 8300000, guid: e1410b154f228074388eb928c2604356, type: 3}
-  - {fileID: 8300000, guid: 2608907b1b5bc094c8766a4d140b7f46, type: 3}
-  - {fileID: 8300000, guid: a8c5b7eb007d11842abcfcd18a64c17e, type: 3}
 --- !u!114 &2662915697492305717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +245,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenade_prefab: {fileID: 4963478343969681340, guid: d6ba3fe092882c747858768f0459908a, type: 3}
+  grenade_throw_clips:
+  - {fileID: 8300000, guid: a8c5b7eb007d11842abcfcd18a64c17e, type: 3}
+  - {fileID: 8300000, guid: 2608907b1b5bc094c8766a4d140b7f46, type: 3}
+  - {fileID: 8300000, guid: e1410b154f228074388eb928c2604356, type: 3}
+  - {fileID: 8300000, guid: 8c425ec46ca3cff4a8b990f70c9e93ab, type: 3}
+  - {fileID: 8300000, guid: c5e915d62845de24d9800d97c3b2f172, type: 3}
+  - {fileID: 8300000, guid: bdabb32db3307f444b8111e662acf1db, type: 3}
+  - {fileID: 8300000, guid: 938aa45f327a5514880e2758105ca24a, type: 3}
 --- !u!114 &5736548869734595910
 MonoBehaviour:
   m_ObjectHideFlags: 0

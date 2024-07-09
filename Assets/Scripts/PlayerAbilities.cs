@@ -8,13 +8,17 @@ public class PlayerAbilities : MonoBehaviour
     private float ability_grenade_cooldown = 1.0f;
 
     [SerializeField] private GameObject grenade_prefab;
+    [SerializeField] private AudioClip[] grenade_throw_clips;
+
+    public static bool grenade_ability = false;
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") && ability_grenade_timer == 0)
+        if (Input.GetButtonDown("Fire1") && ability_grenade_timer == 0 && grenade_ability)
         {
             ability_grenade_timer = ability_grenade_cooldown;
 
+            SoundManager.instance.play_random_sound_clip(grenade_throw_clips, transform, 1f);
             Instantiate(grenade_prefab, transform.position, transform.rotation);
 
             

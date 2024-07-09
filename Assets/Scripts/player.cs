@@ -19,6 +19,24 @@ public class Player : MonoBehaviour
             SoundManager.instance.play_random_sound_clip(death_clips, transform, 1f);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "LevelExit")
+        {
+            LevelManager.instance.set_level(true /*next level*/);
+        }
+
+        if (collision.gameObject.tag == "LevelEnter")
+        {
+            LevelManager.instance.set_level(false /*previous level*/);
+        }
+
+        if (collision.gameObject.tag == "GrenadePickup")
+        {
+            PlayerAbilities.grenade_ability = true;
+            Destroy(collision.gameObject);
+        }
+
     }
+
 }
 

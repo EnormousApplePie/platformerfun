@@ -179,6 +179,10 @@ MonoBehaviour:
     m_Bits: 64
   game_object: {fileID: 4963478343969681340}
   explosion_particle: {fileID: 2052208030933576603, guid: a5016630fe8f26d4a814cf298c57a1dd, type: 3}
+  explosion_clips:
+  - {fileID: 8300000, guid: ee53c6576adeb864489a26cdc093cae6, type: 3}
+  - {fileID: 8300000, guid: 36b4bcb1e5caa8845b44a594b5b5dad6, type: 3}
+  - {fileID: 8300000, guid: 07df45fe5a3f67a43b313d05d10cc75f, type: 3}
 --- !u!1001 &4196013994623871902
 PrefabInstance:
   m_ObjectHideFlags: 0

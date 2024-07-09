@@ -20,6 +20,8 @@ public class Projectiles : MonoBehaviour
 
     [SerializeField] private ParticleSystem explosion_particle = default;
 
+    [SerializeField] private AudioClip[] explosion_clips;
+
     private void Start()
     {
         
@@ -60,6 +62,7 @@ public class Projectiles : MonoBehaviour
             }
         }
 
+        SoundManager.instance.play_random_sound_clip(explosion_clips, transform, 1f);
         Instantiate(explosion_particle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
