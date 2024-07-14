@@ -14,6 +14,13 @@ public class PlayerAbilities : MonoBehaviour
 
     private void Update()
     {
+
+        // cheat, press P to unlock grenade ability
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            grenade_ability = true;
+        }
+
         if (Input.GetButtonDown("Fire1") && ability_grenade_timer == 0 && grenade_ability)
         {
             ability_grenade_timer = ability_grenade_cooldown;

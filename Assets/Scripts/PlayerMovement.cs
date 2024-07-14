@@ -34,17 +34,20 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Add gravity
-        rigid_body.AddForce(new Vector2(0, -9.81f * gravity_scale));
+        if (!LevelManager.is_level_advancing) rigid_body.AddForce(new Vector2(0, -9.81f * gravity_scale));
     }
 
 
     private void Update()
     {
-        rigid_body.velocity = new Vector2(Input.GetAxis("Horizontal") * move_speed, rigid_body.velocity.y);
-        is_grounded = Physics2D.Raycast(ground_check.position, Vector2.down, player_collider.bounds.size.y / 2 + 0.01f, ground_layer);
-        
-        do_coyote_time();
-        player_jumping();
+        if (!LevelManager.is_level_advancing)
+        {
+            rigid_body.velocity = new Vector2(Input.GetAxis("Horizontal") * move_speed, rigid_body.velocity.y);
+            is_grounded = Physics2D.Raycast(ground_check.position, Vector2.down, player_collider.bounds.size.y / 2 + 0.01f, ground_layer);
+
+            do_coyote_time();
+            player_jumping();
+        }
     }
 
     //-----------------------------------------------------------------------------------------------

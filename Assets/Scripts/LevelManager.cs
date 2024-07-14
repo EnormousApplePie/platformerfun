@@ -20,6 +20,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject[] level_objects;
     private int current_level_index = 0;
 
+    [SerializeField] private int starting_level = 0;
+
+    public static bool is_level_advancing = false;
+
     void Awake()
     {
         if (instance == null)
@@ -27,7 +31,14 @@ public class LevelManager : MonoBehaviour
             instance = this;
         }
 
-        //upon start, set everything to the first level
+
+        //upon start, set everything to the selected level
+        current_camera_position_index = starting_level;
+        current_respawn_point_index = starting_level;
+        current_level_index = starting_level;
+
+        //spawn the player at the first spawn point
+        Instantiate(player, respawn_points[current_respawn_point_index].position, Quaternion.identity);
 
         camera.transform.position = camera_positions[current_camera_position_index].position;
         current_spawn_point = respawn_points[current_respawn_point_index];
@@ -79,6 +90,7 @@ public class LevelManager : MonoBehaviour
             StartCoroutine(LerpCamera(previous_camera_position, camera_positions[current_camera_position_index].position, 0.5f, previous_level_index));
         }
 
+        // Advance the respawn point
         if (next_level) current_respawn_point_index += 1;
         else current_respawn_point_index -= 1;
         if (current_respawn_point_index <= respawn_points.Length - 1)
@@ -86,6 +98,7 @@ public class LevelManager : MonoBehaviour
             current_spawn_point = respawn_points[current_respawn_point_index];
         }
 
+        // Advance the level
         if (next_level) current_level_index += 1;
         else current_level_index -= 1;
         Debug.Log(current_level_index);
@@ -101,16 +114,18 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     private IEnumerator LerpCamera(Vector3 start_position, Vector3 end_position, float lerp_time, int previous_level_index)
     {
+        is_level_advancing = true;
         float time_elapsed = 0;
         while (time_elapsed < lerp_time)
         {
-            camera.transform.position = new Vector3(Mathf.SmoothStep(start_position.x, end_position.x, time_elapsed / lerp_time), end_position.y, end_position.z);
+            camera.transform.position = new Vector3(Mathf.SmoothStep(start_position.x, end_position.x, time_elapsed / lerp_time), Mathf.SmoothStep(start_position.y, end_position.y, time_elapsed / lerp_time), end_position.z);
             time_elapsed += Time.deltaTime;
 
             // set the previous level objects to non-active when the lerping is done
             if (time_elapsed >= lerp_time)
             {
                 level_objects[previous_level_index].SetActive(false);
+                is_level_advancing = false;
             }
             yield return null;
         }
